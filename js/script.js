@@ -1,20 +1,6 @@
-/******************************************
-Treehouse Techdegree:
-FSJS project 2 - List Filter and Pagination
-******************************************/
-   
-// Study guide for this project - https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view?usp=sharing
-
-
 /*** 
-   Add your global variables that store the DOM elements you will 
-   need to reference and/or manipulate. 
-   
-   But be mindful of which variables should be global and which 
-   should be locally scoped to one of the two main functions you're 
-   going to create. A good general rule of thumb is if the variable 
-   will only be used inside of a function, then it can be locally 
-   scoped to that function.
+   These are my two global variables that will contain my list and that about of names to show on each page
+   and where they will be pulled from. 
 ***/
 const list = document.querySelectorAll('li');
 const namesPerPage = 10;
@@ -22,18 +8,8 @@ const namesPerPage = 10;
 console.log (list);
 
 /*** 
-   Create the `showPage` function to hide all of the items in the 
-   list except for the ten you want to show.
-
-   Pro Tips: 
-     - Keep in mind that with a list of 54 students, the last page 
-       will only display four.
-     - Remember that the first student has an index of 0.
-     - Remember that a function `parameter` goes in the parens when 
-       you initially define the function, and it acts as a variable 
-       or a placeholder to represent the actual function `argument` 
-       that will be passed into the parens later when you call or 
-       "invoke" the function 
+ This is the code that allows you to set the number of students that will be shown per page...10. 
+      
 ***/
 const showPage = (list,page) => {
    let startIndex = (page * 10) - 10;
@@ -52,8 +28,7 @@ const showPage = (list,page) => {
  showPage(list,1);
 
 /*** 
-   Create the `appendPageLinks function` to generate, append, and add 
-   functionality to the pagination buttons.
+   the page code that creates buttons for the appendPagelinks and number of pages that it will split up into. 
 ***/
 
 const appendPageLinks = (list) => { 
@@ -77,7 +52,8 @@ const appendPageLinks = (list) => {
       li.appendChild(a);
      
 
-     a.addEventListener("click", (event) => {
+     a.addEventListener("click", (event) => { /** /this o the code that allows you to select the buttons at the
+      bottom of the page which will be high lighted only when selected/** */ 
       let a = document.querySelectorAll('a')
       for(let i = 0; i < a.length; i++ ) {
          // make it inactive
@@ -93,6 +69,5 @@ const appendPageLinks = (list) => {
 
 }
 
-appendPageLinks(list);
-
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
+appendPageLinks(list); 
+// this last code is what brings it all together, pages shown as button, students per page... you know.
